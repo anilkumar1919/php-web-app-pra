@@ -23,8 +23,8 @@ variables:
   rootFolder: $(System.DefaultWorkingDirectory)
 
 stages:
-- stage: Build
-  displayName: Build stage
+- stage: Archive
+  displayName: Archive stage
   variables:
     phpVersion: '7.3'
   jobs:
@@ -40,7 +40,7 @@ stages:
         sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
         php -version
       workingDirectory: $(rootFolder)
-      displayName: 'Use PHP version $(phpVersion)'
+      displayName: 'Use PHP version $(phpVersion)' 
 
     - script: composer install --no-interaction --prefer-dist
       workingDirectory: $(rootFolder)
